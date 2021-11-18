@@ -87,7 +87,7 @@ colnames(cod_week)<- c('COD_WEEK')
 BASEF2<- cbind(BASEF,week3,year1,cod_week)
 BASEF2<-BASEF2[order(BASEF2$DT_NOTIF),] # 3,963,003
 BASEF3<-subset(BASEF2, BASEF2$test>0) # 3,963,003
-save(BASEF3,file="BASE_ABA_042019.rdata") ###Data for applied bayesian analysis ## 042019
+save(BASEF3,file="BASE_ABA_042019.rdata") ###Data for applied bayesian analysis ## You can see the depurate data in this file.
 Data_vivax <- subset(BASEF3,BASEF3$RES_EXAM == 4) # 3,232,766 obs
 Data_falciparum <- subset(BASEF3,BASEF3$RES_EXAM == 2 | BASEF3$RES_EXAM == 3 | BASEF3$RES_EXAM == 7) # 685,317 obs
 

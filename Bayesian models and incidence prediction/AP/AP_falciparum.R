@@ -1,6 +1,6 @@
 ########################################################################
 #                                                                      #
-#     Bayesian models and falciparum incidence prediction (ACRE)       #
+#    Bayesian models and falciparum incidence prediction (AMAP√Å)       #
 #                                                                      #
 ########################################################################
 ### Packages
@@ -14,11 +14,11 @@ library(spdep)
 library(INLA)
 INLA:::inla.dynload.workaround()
 
-setwd("C:/Users/Mario CaÒon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/INLA data")
+setwd("~/INLA data")
 load("BRASIL_INLA_mes_fal.rdata", verbose=TRUE) #falciparum data
 #### Amapa 1600000
 BASE_BRA_STA<-subset(BASE_BRA,as.character(BASE_BRA$muni_cut.geocod_6.j.)<170000 & as.character(BASE_BRA$muni_cut.geocod_6.j.)>159999)
-setwd("C:/Users/Mario CaÒon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/AP")
+setwd("~/Bayesian models and incidence prediction/AP")
 Amapa <- readOGR("AP", "16MUE250GC_SIR")
 pol <- poly2nb(Amapa)
 nb2INLA("AP.graph", pol) 
@@ -53,8 +53,6 @@ t <- proc.time()
 model.inla.5 <- inla(formula.4,family="poisson",data=BASE_SIMPLES2,E=POP/100000, control.predictor=list(compute=TRUE), control.compute=list(dic=TRUE,cpo=TRUE,waic=TRUE))#,waic=TRUE))
 proc.time()-t
 
-#save(model.inla.5,file="AP_after_INLA_mes_fal_Ypred2016_2018_simples+spa_month_year_ate_2018.rdata")
-load(file="AP_after_INLA_mes_fal_Ypred2016_2018_simples+spa_month_year_ate_2018.rdata")
 pred5<-exp(model.inla.5[["summary.linear.predictor"]][["mean"]]) 
 ######################### Incidencia_pre final
 I0<-data.frame(i=BASE_BRA_STA2$i,Y=BASE_BRA_STA2$Y,Yp5=pred5*BASE_BRA_STA2$POP/100000)

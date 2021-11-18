@@ -17,12 +17,12 @@ INLA:::inla.dynload.workaround() #
 #                                                                                                                #
 ##################################################################################################################
 
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/INLA data")
+setwd("~/INLA data")
 load("BRASIL_INLA_mes_v.rdata", verbose=TRUE) #vivax data
 #### Subset Acre state
 BASE_BRA_STA<-subset(BASE_BRA,as.character(BASE_BRA$muni_cut.geocod_6.j.)<130000 & as.character(BASE_BRA$muni_cut.geocod_6.j.)>119999)
 
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/AC")
+setwd("~/Bayesian models and incidence prediction/AC")
 Acre <- readOGR("AC", "12MUE250GC_SIR")
 pol <- poly2nb(Acre)
 nb2INLA("AC.graph", pol) 
@@ -67,7 +67,7 @@ for (k in 2003:2018) {
   }
 }
 
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Deforestation data")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Deforestation data")
 load("dados_desmatamento.rdata")
 Base_desmatamento<-BASE
 DESMA<-NULL
@@ -79,7 +79,7 @@ for (i in 1:nrow(BASEz)) {
 }
 BASE_IN<-data.frame(BASEz,Desma=DESMA$Desma,i=BASEz$Year-2002,antes=as.integer(BASEz$Year<2016),despues=as.integer(BASEz$Year>2015),ID.mun.ano=seq(1,nrow(BASEz)))
 BASE_IN[is.na(BASE_IN)] <- 0
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/AC")
+setwd("~/Bayesian models and incidence prediction/AC")
 
 ######## ########
 formula.1<- Y ~ 1 + f(ID.area.sta,model="bym",graph=AC.adj) + f(i,model="rw1") + f(ID.mun.ano, model="iid") + despues*AGRECU + despues*TUR_V + despues*Desma  + despues*DOM  + despues*GAR_MIN + despues*OUT +despues*IMPO
@@ -106,12 +106,12 @@ save(AC_viv,file="AC_viv_variavels.Rdata")
 #
 #            Falciparum
 #########################3
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/INLA data")
+setwd("~/Artigo malaria Journal/INLA data")
 load("BRASIL_INLA_mes_fal.rdata", verbose=TRUE) #vivax data
 #### ACRE
 BASE_BRA_STA<-subset(BASE_BRA,as.character(BASE_BRA$muni_cut.geocod_6.j.)<130000 & as.character(BASE_BRA$muni_cut.geocod_6.j.)>119999)
 
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/AC")
+setwd("~/Artigo malaria Journal/Bayesian models and incidence prediction/AC")
 Acre <- readOGR("AC", "12MUE250GC_SIR")
 pol <- poly2nb(Acre)
 nb2INLA("AC.graph", pol) 
@@ -155,7 +155,7 @@ for (k in 2003:2018) {
     BASEz<-rbind(BASEz,REC)
   }
 }
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Deforestation data")
+setwd("~/Deforestation data")
 load("dados_desmatamento.rdata")
 Base_desmatamento<-BASE
 DESMA<-NULL
@@ -167,7 +167,7 @@ for (i in 1:nrow(BASEz)) {
 }
 BASE_IN<-data.frame(BASEz,Desma=DESMA$Desma,i=BASEz$Year-2002,antes=as.integer(BASEz$Year<2016),despues=as.integer(BASEz$Year>2015),ID.mun.ano=seq(1,nrow(BASEz)))
 BASE_IN[is.na(BASE_IN)] <- 0
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/Ac")
+setwd("~/Bayesian models and incidence prediction/Ac")
 
 ######## ########
 
@@ -188,4 +188,4 @@ model.inla.1$summary.fixed
 model.inla.1$dic$dic
 # incidence increase from 1% of variable increase
 AC_fal <- model.inla.1$summary.fixed[10:16,] 
-save(AC_fal,file="AC_fal_variavels.Rdata")
+#save(AC_fal,file="AC_fal_variavels.Rdata")

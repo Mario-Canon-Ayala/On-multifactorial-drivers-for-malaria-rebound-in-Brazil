@@ -1,4 +1,4 @@
-# C?digo para hacer la corrida con covariables hasta 2015
+# Second Bayesian model: deforestatio, occupations and imported cases
 ### Packages
 library(beepr)
 library(foreign)
@@ -17,11 +17,11 @@ INLA:::inla.dynload.workaround() #
 #                                                                                                                #
 ##################################################################################################################
 
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/INLA data")
+setwd("~/INLA data")
 load("BRASIL_INLA_mes_v.rdata", verbose=TRUE) #vivax data
 #### Subset Roraima 1400000
 BASE_BRA_STA<-subset(BASE_BRA,as.character(BASE_BRA$muni_cut.geocod_6.j.)<150000 & as.character(BASE_BRA$muni_cut.geocod_6.j.)>139999)
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/RR")
+setwd("~/Bayesian models and incidence prediction/RR")
 RR <- readOGR("RR", "14MUE250GC_SIR")
 pol <- poly2nb(RR)
 nb2INLA("RR.graph", pol) 
@@ -66,7 +66,7 @@ for (k in 2003:2018) {
   }
 }
 
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Deforestation data")
+setwd("~/Deforestation data")
 load("dados_desmatamento.rdata")
 Base_desmatamento<-BASE
 DESMA<-NULL
@@ -78,7 +78,7 @@ for (i in 1:nrow(BASEz)) {
 }
 BASE_IN<-data.frame(BASEz,Desma=DESMA$Desma,i=BASEz$Year-2002,antes=as.integer(BASEz$Year<2016),despues=as.integer(BASEz$Year>2015),ID.mun.ano=seq(1,nrow(BASEz)))
 BASE_IN[is.na(BASE_IN)] <- 0
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/RR")
+setwd("~/Bayesian models and incidence prediction/RR")
 
 ######## ########
 formula.1<- Y ~ 1 + f(ID.area.sta,model="bym",graph=RR.adj) + f(i,model="rw1") + f(ID.mun.ano, model="iid") + despues*AGRECU + despues*TUR_V + despues*Desma  + despues*DOM  + despues*GAR_MIN + despues*OUT +despues*IMPO
@@ -105,11 +105,11 @@ save(RR_viv,file="RR_viv_variavels.Rdata")
 #
 #            Falciparum
 #########################3
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/INLA data")
+setwd("~/INLA data")
 load("BRASIL_INLA_mes_fal.rdata", verbose=TRUE) #falciparum data
 #### Subset Roraima 1400000
 BASE_BRA_STA<-subset(BASE_BRA,as.character(BASE_BRA$muni_cut.geocod_6.j.)<150000 & as.character(BASE_BRA$muni_cut.geocod_6.j.)>139999)
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/RR")
+setwd("~/Bayesian models and incidence prediction/RR")
 RR <- readOGR("RR", "14MUE250GC_SIR")
 pol <- poly2nb(RR)
 nb2INLA("RR.graph", pol) 
@@ -154,7 +154,7 @@ for (k in 2003:2018) {
   }
 }
 
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Deforestation data")
+setwd("~/Deforestation data")
 load("dados_desmatamento.rdata")
 Base_desmatamento<-BASE
 DESMA<-NULL
@@ -166,7 +166,7 @@ for (i in 1:nrow(BASEz)) {
 }
 BASE_IN<-data.frame(BASEz,Desma=DESMA$Desma,i=BASEz$Year-2002,antes=as.integer(BASEz$Year<2016),despues=as.integer(BASEz$Year>2015),ID.mun.ano=seq(1,nrow(BASEz)))
 BASE_IN[is.na(BASE_IN)] <- 0
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/RR")
+setwd("~/Bayesian models and incidence prediction/RR")
 
 ######## ########
 formula.1<- Y ~ 1 + f(ID.area.sta,model="bym",graph=RR.adj) + f(i,model="rw1") + f(ID.mun.ano, model="iid") + despues*AGRECU + despues*TUR_V + despues*Desma  + despues*DOM  + despues*GAR_MIN + despues*OUT +despues*IMPO
@@ -186,4 +186,4 @@ model.inla.1$summary.fixed
 model.inla.1$dic$dic
 # incidence increase from 1% of variable increase
 RR_fal <- model.inla.1$summary.fixed[10:16,] 
-save(RR_fal,file="RR_fal_variavels.Rdata")
+#save(RR_fal,file="RR_fal_variavels.Rdata")

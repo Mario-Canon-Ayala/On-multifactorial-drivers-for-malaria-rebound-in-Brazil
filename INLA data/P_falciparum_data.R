@@ -7,7 +7,7 @@ library(rgdal)
 library(readxl)
 library('stringr')
 library(readODS)
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Incidence data")
+setwd("~/Incidence data")
 # Load depurate data
 load("BASE_ABA_042019.rdata", verbose=TRUE)
 # Calculate data-base at month
@@ -16,7 +16,7 @@ BASE<-cbind(BASEF3,mes)
 # Falciparum data-base
 BASE_fal<-subset(BASE,BASE$RES_EXAM == 2 | BASE$RES_EXAM == 3 | BASE$RES_EXAM == 7) #
 # Brazil municipalities
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Maps")
+setwd("~/Maps")
 # Obtain Amazon basin
 muni <- readOGR("br_municipios","BRMUE250GC_SIR")
 muni@data$geocod_2 <- str_sub(muni$CD_GEOCMU, 1, 2)
@@ -45,7 +45,7 @@ for (i in 1:192){
     BASEP<-rbind(BASEP,BA)
   }}
 # save results
-#setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/INLA data")
+#setwd("~/INLA data")
 #save(BASEP,file="BRASIL_INLA_fal_mes_2.rdata")
 #load("BRASIL_INLA_fal_mes_2.rdata", verbose=TRUE)
 #       ID   MUN (area-population)         #
@@ -57,7 +57,7 @@ for (i in 1:192) {
 }
 ID.mun.mes<-data.frame(1:nrow(BASEP))
 colnames(ID.mun.mes)<-c("ID.mun.mes")
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Population data")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Population data")
 POP <- read_excel("Populations.xls")
 order <- match(muni_cut$CD_GEOCMU,POP$COD)
 POP_order2<- NULL
@@ -80,5 +80,5 @@ for(i in 1:16){
 }
 BASE_BRA<-data.frame(BASEP,ID.area,ID.mun.mes,month_POP)
 # save results
-#setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/INLA data")
+#setwd("~/INLA data")
 #save(BASE_BRA,file="BRASIL_INLA_mes_fal.rdata")

@@ -14,12 +14,12 @@ library(spdep)
 library(INLA)
 INLA:::inla.dynload.workaround()
 
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/INLA data")
+setwd("~/INLA data")
 load("BRASIL_INLA_mes_fal.rdata", verbose=TRUE) #falciparum data
 #### Subset Acre 
 BASE_BRA_STA<-subset(BASE_BRA,as.character(BASE_BRA$muni_cut.geocod_6.j.)<130000 & as.character(BASE_BRA$muni_cut.geocod_6.j.)>119999)
 
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/AC")
+setwd("~/Bayesian models and incidence prediction/AC")
 Acre <- readOGR("AC", "12MUE250GC_SIR")
 pol <- poly2nb(Acre)
 nb2INLA("AC.graph", pol) 
@@ -55,9 +55,7 @@ formula.4<- Y2 ~ 1 +  f(month, model = "rw2", constr = T, cyclic = T) + f(year, 
 t <- proc.time()
 model.inla.5 <- inla(formula.4,family="poisson",data=BASE_SIMPLES2,E=POP/100000, control.predictor=list(compute=TRUE), control.compute=list(dic=TRUE,cpo=TRUE,waic=TRUE))#,waic=TRUE))
 proc.time()-t
-#save results INLA
-#save(model.inla.5,file="AC_after_INLA_mes_fal_Ypred2016_2018_simples+spa_month_year_ate_2018.rdata")
-load(file="AC_after_INLA_mes_fal_Ypred2016_2018_simples+spa_month_year_ate_2018.rdata")
+
 pred5<-exp(model.inla.5[["summary.linear.predictor"]][["mean"]]) 
 ############# real incidence vs model prevision
 I0<-data.frame(i=BASE_BRA_STA2$i,Y=BASE_BRA_STA2$Y,Yp5=pred5*BASE_BRA_STA2$POP/100000)
@@ -69,7 +67,7 @@ for (j in 1:192) {
   col<-data.frame(i=j,Y=Y_,Pre=Y5)
   Inci<-rbind(Inci,col)
 }
-save(Inci,file="AC_pre_fal.rdata")
+#save(Inci,file="AC_pre_fal.rdata")
 ###########################################################################################
 #                                                                                         #
 #                                 Error map                                               #
@@ -87,4 +85,4 @@ for (i in 1:max(BASE_BRA_STA2$ID.area.sta)) {
   record<-data.frame(mun=i,ID.area=BASE_BRA_STA2$ID.area[i],EP2016=Y2016,EP2017=Y2017,EP2018=Y2018)
   BASSER<-rbind(BASSER,record)
 }
-save(BASSER,file="MAPER_AC_fal.rdata")
+#save(BASSER,file="MAPER_AC_fal.rdata")

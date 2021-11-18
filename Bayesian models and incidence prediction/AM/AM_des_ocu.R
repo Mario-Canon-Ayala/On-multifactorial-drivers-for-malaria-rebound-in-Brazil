@@ -1,4 +1,4 @@
-# C?digo para hacer la corrida con covariables hasta 2015
+# Second Bayesian model with deforestation, occupations and imported cases
 ### Packages
 library(beepr)
 library(foreign)

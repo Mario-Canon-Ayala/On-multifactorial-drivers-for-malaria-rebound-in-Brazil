@@ -14,14 +14,14 @@ library(spdep)
 library(INLA)
 INLA:::inla.dynload.workaround()
 
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/INLA data")
+setwd("~/INLA data")
 load("BRASIL_INLA_mes_v.rdata", verbose=TRUE) #vivax data
 #### Subset Amazonas state
 BASE_BRA_AMA<-subset(BASE_BRA,as.character(BASE_BRA$muni_cut.geocod_6.j.)<140000 & as.character(BASE_BRA$muni_cut.geocod_6.j.)>129999)
 ID.area.ama<-rep(1:62,192)
 ID.mun.mes.ama<-1:11904
 BASE_BRA_AMA2<-data.frame(BASE_BRA_AMA,ID.area.ama,ID.mun.mes.ama)
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/AM")
+setwd("~/Bayesian models and incidence prediction/AM")
 Ama <- readOGR("AM", "13MUE250GC_SIR")
 pol <- poly2nb(Ama)
 nb2INLA("AMA.graph", pol) 
@@ -44,8 +44,7 @@ formula.4<- Y2 ~ 1 +  f(month, model = "rw2", constr = T, cyclic = T) + f(year, 
 t <- proc.time()
 model.inla.5 <- inla(formula.4,family="poisson",data=BASE_SIMPLES,E=POP/100000, control.predictor=list(compute=TRUE), control.compute=list(dic=TRUE,cpo=TRUE,waic=TRUE))#,waic=TRUE))
 proc.time()-t
-#save(model.inla.5,file="AM_after_INLA_mes_viv_Ypred2016_2018_simples+spa_month_year_ate_2018.rdata")
-load(file="AM_after_INLA_mes_viv_Ypred2016_2018_simples+spa_month_year_ate_2018.rdata")
+
 pred5<-exp(model.inla.5[["summary.linear.predictor"]][["mean"]]) 
 
 ############# real incidence vs model prevision

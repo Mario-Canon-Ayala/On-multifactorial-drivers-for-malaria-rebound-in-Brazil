@@ -6,9 +6,11 @@ library(lubridate)
 ###########################################
 #               Data                      #
 ###########################################
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal")
+setwd("~/Incidence data")
 # Raw data: 5,972,715
-load(file="data_2003_2018.Rdata")
+load(file="data_2003_2018.Rdata") 
+# Raw data were provided by The Brazilian Health Ministry through SIVEP Malaria repository
+# http://200.214.130.44/sivep_malaria/ 
 # Delete the posterior report after treatment (LVC=1). We obtain new cases only
 mala_total<- subset(mala_total_1,mala_total_1$ID_LVC.==2) #4,931,318 obs 
 # Extract study variables

@@ -6,7 +6,7 @@ We also share a set of previous data files:
 
 1. Deforestation data: we download deforestation indicators from PRODES website (http://www.dpi.inpe.br/prodesdigital/prodesmunicipal.php). This data was saved in "dados_desmatamento.Rdata". You can obtain the original data through PRODES website.
 
-2. Incidence data: we requested incidence to the Brazilian Health Ministry through SIVEP malaria system (http://200.214.130.44/sivep_malaria/). If you want to obtain the original data, you must create a formal request in SIVEP malaria website. Nevertheless, we debug the original data implementing "Depurate_data.R" script that generated the clean database from original data. 
+2. Incidence data: we requested incidence to the Brazilian Health Ministry through SIVEP malaria system (http://200.214.130.44/sivep_malaria/). If you want to obtain the original data, you must create a formal request in SIVEP malaria website. Nevertheless, we debug the original data implementing "Depurate_data.R" script that generated the clean database ("BASE_ABA_042019.RData") from original data. 
 
 3. INLA data: this folder contains two Rscripts for creating data bases in the correct spatial and temporal order to implement Bayesian model with INLA. "P_falciparum_data.R" script generates P. falciparum database and "P_vivax_data.R" script generates P. vivax database.
 

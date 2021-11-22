@@ -7,7 +7,7 @@ library(rgdal)
 library(readxl)
 library('stringr')
 library(gridExtra)
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Maps")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Maps")
 #############################################
 #                BRAZIL MAP                 #
 #############################################
@@ -21,32 +21,32 @@ municipios<-muni_cut@data
 #############
 ##  Vivax   #
 #############
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/AP")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/AP")
 load("MAPER_AP_viv.rdata")
 AP_viv<-BASSER
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/AM")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/AM")
 load("MAPER_AM_viv.rdata")
 AM_viv<-BASSER
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/PA")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/PA")
 load("MAPER_PA_viv.rdata")
 PA_viv<-BASSER
 names(PA_viv)<-names(AP_viv)
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/AC")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/AC")
 load("MAPER_AC_viv.rdata")
 AC_viv<-BASSER
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/RR")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/RR")
 load("MAPER_RR_viv.rdata")
 RR_viv<-BASSER
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/RO")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/RO")
 load("MAPER_RO_viv.rdata")
 RO_viv<-BASSER
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/MT")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/MT")
 load("MAPER_MT_viv.rdata")
 MT_viv<-BASSER
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/TO")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/TO")
 load("MAPER_TO_viv.rdata")
 TO_viv<-BASSER
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/MA")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/MA")
 load("MAPER_MA_viv.rdata")
 MA_viv<-BASSER
 BASE_viv<-rbind(AP_viv,AM_viv,PA_viv,AC_viv,RR_viv,RO_viv,MT_viv,TO_viv,MA_viv)
@@ -58,31 +58,31 @@ for (i in 1:808) {
 ################
 ## falciparum  #
 ################
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/AP")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/AP")
 load("MAPER_AP_fal.rdata")
 AP_fal<-BASSER
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/AM")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/AM")
 load("MAPER_AM_fal.rdata")
 AM_fal<-BASSER
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/PA")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/PA")
 load("MAPER_PA_fal.rdata")
 PA_fal<-BASSER
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/AC")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/AC")
 load("MAPER_AC_fal.rdata")
 AC_fal<-BASSER
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/RR")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/RR")
 load("MAPER_RR_fal.rdata")
 RR_fal<-BASSER
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/RO")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/RO")
 load("MAPER_RO_fal.rdata")
 RO_fal<-BASSER
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/MT")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/MT")
 load("MAPER_MT_fal.rdata")
 MT_fal<-BASSER
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/TO")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/TO")
 load("MAPER_TO_fal.rdata")
 TO_fal<-BASSER
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/MA")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction/MA")
 load("MAPER_MA_fal.rdata")
 MA_fal<-BASSER
 BASE_fal<-rbind(AP_fal,AM_fal,PA_fal,AC_fal,RR_fal,RO_fal,MT_fal,TO_fal,MA_fal)
@@ -116,7 +116,7 @@ attr(muni_cut, "data")=data.frame(ERR_v2,ERR_f2)
 ###########################3
 #         MAPS
 ############################
-setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction")
+setwd("C:/Users/Mario CaÃ±on/ownCloud/malaria/Analises Mario/Dados/Artigo malaria Journal/Bayesian models and incidence prediction")
 #
 #      Vivax
 #
@@ -126,10 +126,13 @@ setwd("C:/Users/Mario Cañon/ownCloud/malaria/Analises Mario/Dados/Artigo malaria
 labelat = c(1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14)
 zetav.cutoff<- c(-1000,-200,-100,-50,-25,-10,-5,0,5,10,25,50,100,200,1000)
 labeltextv = c("<-200", "-200 - -100", "-100 - -50", "-50 - -25", "-25 - -10","-10 - -5","-5 - 0","0 - 5","5 - 10","10 - 25","25 - 50","50 - 100","100 - 200",">200")
-pdf(paste("Figure 2a.pdf",sep=""),width=5,height=1.7,paper='special')
+pdf(paste("Figure 2a.pdf",sep=""),width=5,height=1.5,paper='special')
 mapv<-spplot(obj=muni_cut, zcol= c("P._vivax_2016","P._vivax_2017","P._vivax_2018"),layout=c(3,1), col.regions=colorRampPalette(c('blue', 'gray','red'))(14),par.settings=list(fontsize=list(text=7)),
-             col = "transparent",
-             colorkey = list(labels=list(at=labelat,labels=labeltextv)))
+             col = "transparent", 
+             names.attr = c("2016","2017","2018") ,
+             colorkey = list(labels=list(at=labelat,labels=labeltextv)),
+             main= list( as.expression(bquote(italic("P. vivax"))), x=0.1,just = "left") 
+              )
 print(mapv)
 dev.off()
 ############################
@@ -142,10 +145,12 @@ dev.off()
 labelatf = c(1, 2, 3, 4, 5,6,7,8,9,10)
 zetaf.cutoff<- c(-1000,-50,-20,-10,-5,0,5,10,20,50,1000)
 labeltextf = c("<-50", "-50 - -20", "-20 - -10", "-10 - -5", "-5 - 0","0 - 5","5 - 10","10 - 20","20 - 50",">50")
-pdf(paste("Figure 2b.pdf",sep=""),width=5,height=1.7,paper='special')
+pdf(paste("Figure 2b.pdf",sep=""),width=5,height=1.5,paper='special')
 mapf<-spplot(obj=muni_cut, zcol= c("P._falciparum_2016","P._falciparum_2017","P._falciparum_2018"),layout=c(3,1), col.regions=colorRampPalette(c('blue', 'gray','red'))(10),par.settings=list(fontsize=list(text=7)),
              col = "transparent",
-             colorkey = list(labels=list(at=labelatf,labels=labeltextf)))
+             names.attr = c("2016","2017","2018") ,
+             colorkey = list(labels=list(at=labelat,labels=labeltextv)),
+             main= list( as.expression(bquote(italic("P. falciparum"))), x=0.1,just = "left"))
 print(mapf)
 dev.off()
 ##############################################################
@@ -154,7 +159,7 @@ dev.off()
 #                                                            #
 ##############################################################
 library(gridExtra)
-pdf(paste("Figure_2.pdf",sep=""),width=5,height=3.4,paper='special')
+pdf(paste("Figure_2.pdf",sep=""),width=5,height=3,paper='special')
 grid.arrange(mapv,mapf, nrow=2)
 dev.off()
 
@@ -168,7 +173,7 @@ dev.off()
 #########
 BASEviv<-data.frame(municipios,ERR_v) #808
 ################################################
-# Error promedio de predicción por mes (25,50] #
+#  (25,50] #
 ################################################
 # 2016
 Ev25_50_16<-subset(BASEviv,BASEviv$V2016=="(25,50]")
@@ -221,41 +226,41 @@ HEAD_V<-rbind(BASEV_2016,BASEV_2017,BASEV_2018)
 kkk<-paste0(HEAD_V$State," ",HEAD_V$Municipality)
 nam_mun<-c("(RO) ARIQUEMES",                   
            "(RO) CANDEIAS DO JAMARI",          
-           "(RO) GUAJARÁ-MIRIM",         
+           "(RO) GUAJARÃ-MIRIM",         
            "(RO) MACHADINHO D'OESTE",          
            "(RO) PORTO VELHO",                 
            "(AC) CRUZEIRO DO SUL",             
-           "(AC) MÂNCIO LIMA",                
+           "(AC) MÃ‚NCIO LIMA",                
            "(AM) BARCELOS",                    
            "(AM) CARAUARI",                    
-           "(AM) CAREIRO DA VÁRZEA",     
+           "(AM) CAREIRO DA VÃRZEA",     
            "(AM) COARI",                       
-           "(AM) GUAJARÁ",               
+           "(AM) GUAJARÃ",               
            "(AM) ITACOATIARA",                 
            "(AM) ITAMARATI",                   
-           "(AM) JAPURÁ",                
-           "(AM) JUTAÍ",                 
-           "(AM) MARAÃ",                      
-           "(AM) NOVO AIRÃO",                 
+           "(AM) JAPURÃ",                
+           "(AM) JUTAÃ",                 
+           "(AM) MARAÃƒ",                      
+           "(AM) NOVO AIRÃƒO",                 
            "(AM) PRESIDENTE FIGUEIREDO",       
            "(AM) SANTA ISABEL DO RIO NEGRO",   
-           "(AM) SANTO ANTÔNIO DO IÇÁ",
-           "(AM) SÃO GABRIEL DA CACHOEIRA",   
-           "(AM) TAPAUÁ",                
-           "(AM) TEFÉ",                       
+           "(AM) SANTO ANTÃ”NIO DO IÃ‡Ã",
+           "(AM) SÃƒO GABRIEL DA CACHOEIRA",   
+           "(AM) TAPAUÃ",                
+           "(AM) TEFÃ‰",                       
            "(RR) ALTO ALEGRE",                 
            "(RR) BOA VISTA",                   
-           "(RR) CANTÁ",                 
-           "(RR) CARACARAÍ",             
+           "(RR) CANTÃ",                 
+           "(RR) CARACARAÃ",             
            "(RR) PACARAIMA",                   
-           "(RR) RORAINÓPOLIS",               
-           "(RR) UIRAMUTÃ",                   
-           "(PA) AFUÁ",                  
-           "(PA) ANAJÁS",                
+           "(RR) RORAINÃ“POLIS",               
+           "(RR) UIRAMUTÃƒ",                   
+           "(PA) AFUÃ",                  
+           "(PA) ANAJÃS",                
            "(PA) BAGRE",                       
-           "(PA) BAIÃO",                      
+           "(PA) BAIÃƒO",                      
            "(PA) BREVES",                      
-           "(PA) CAMETÁ",                
+           "(PA) CAMETÃ",                
            "(PA) CURRALINHO",                  
            "(PA) ITAITUBA",                    
            "(PA) JACAREACANGA",                
@@ -263,53 +268,53 @@ nam_mun<-c("(RO) ARIQUEMES",
            "(PA) MOCAJUBA",                    
            "(PA) NOVO PROGRESSO",              
            "(PA) NOVO REPARTIMENTO",           
-           "(PA) OEIRAS DO PARÁ",        
-           "(PA) OURILÁNDIA DO NORTE",        
+           "(PA) OEIRAS DO PARÃ",        
+           "(PA) OURILÃNDIA DO NORTE",        
            "(PA) PORTEL",                      
-           "(PA) SÃO SEBASTIÃO DA BOA VISTA",
-           "(PA) TUCUMÃ",                     
-           "(PA) TUCURUÍ",               
-           "(AP) MACAPÁ",                
-           "(AP) MAZAGÃO",                    
+           "(PA) SÃƒO SEBASTIÃƒO DA BOA VISTA",
+           "(PA) TUCUMÃƒ",                     
+           "(PA) TUCURUÃ",               
+           "(AP) MACAPÃ",                
+           "(AP) MAZAGÃƒO",                    
            "(AP) PORTO GRANDE",                
            "(AP) SANTANA",  
            "(RO) ARIQUEMES",                   
            "(RO) CANDEIAS DO JAMARI",          
-           "(RO) GUAJARÁ-MIRIM",         
+           "(RO) GUAJARÃ-MIRIM",         
            "(RO) MACHADINHO D'OESTE",          
            "(RO) PORTO VELHO",                 
            "(AC) CRUZEIRO DO SUL",             
-           "(AC) MÂNCIO LIMA",                
+           "(AC) MÃ‚NCIO LIMA",                
            "(AM) BARCELOS",                    
            "(AM) CARAUARI",                    
-           "(AM) CAREIRO DA VÁRZEA",     
+           "(AM) CAREIRO DA VÃRZEA",     
            "(AM) COARI",                       
-           "(AM) GUAJARÁ",               
+           "(AM) GUAJARÃ",               
            "(AM) ITACOATIARA",                 
            "(AM) ITAMARATI",                   
-           "(AM) JAPURÁ",                
-           "(AM) JUTAÍ",                 
-           "(AM) MARAÃ",                      
-           "(AM) NOVO AIRÃO",                 
+           "(AM) JAPURÃ",                
+           "(AM) JUTAÃ",                 
+           "(AM) MARAÃƒ",                      
+           "(AM) NOVO AIRÃƒO",                 
            "(AM) PRESIDENTE FIGUEIREDO",       
            "(AM) SANTA ISABEL DO RIO NEGRO",   
-           "(AM) SANTO ANTÔNIO DO IÇÁ",
-           "(AM) SÃO GABRIEL DA CACHOEIRA",   
-           "(AM) TAPAUÁ",                
-           "(AM) TEFÉ",                       
+           "(AM) SANTO ANTÃ”NIO DO IÃ‡Ã",
+           "(AM) SÃƒO GABRIEL DA CACHOEIRA",   
+           "(AM) TAPAUÃ",                
+           "(AM) TEFÃ‰",                       
            "(RR) ALTO ALEGRE",                 
            "(RR) BOA VISTA",                   
-           "(RR) CANTÁ",                 
-           "(RR) CARACARAÍ",             
+           "(RR) CANTÃ",                 
+           "(RR) CARACARAÃ",             
            "(RR) PACARAIMA",                   
-           "(RR) RORAINÓPOLIS",               
-           "(RR) UIRAMUTÃ",                   
-           "(PA) AFUÁ",                  
-           "(PA) ANAJÁS",                
+           "(RR) RORAINÃ“POLIS",               
+           "(RR) UIRAMUTÃƒ",                   
+           "(PA) AFUÃ",                  
+           "(PA) ANAJÃS",                
            "(PA) BAGRE",                       
-           "(PA) BAIÃO",                      
+           "(PA) BAIÃƒO",                      
            "(PA) BREVES",                      
-           "(PA) CAMETÁ",                
+           "(PA) CAMETÃ",                
            "(PA) CURRALINHO",                  
            "(PA) ITAITUBA",                    
            "(PA) JACAREACANGA",                
@@ -317,53 +322,53 @@ nam_mun<-c("(RO) ARIQUEMES",
            "(PA) MOCAJUBA",                    
            "(PA) NOVO PROGRESSO",              
            "(PA) NOVO REPARTIMENTO",           
-           "(PA) OEIRAS DO PARÁ",        
-           "(PA) OURILÁNDIA DO NORTE",        
+           "(PA) OEIRAS DO PARÃ",        
+           "(PA) OURILÃNDIA DO NORTE",        
            "(PA) PORTEL",                      
-           "(PA) SÃO SEBASTIÃO DA BOA VISTA",
-           "(PA) TUCUMÃ",                     
-           "(PA) TUCURUÍ",               
-           "(AP) MACAPÁ",                
-           "(AP) MAZAGÃO",                    
+           "(PA) SÃƒO SEBASTIÃƒO DA BOA VISTA",
+           "(PA) TUCUMÃƒ",                     
+           "(PA) TUCURUÃ",               
+           "(AP) MACAPÃ",                
+           "(AP) MAZAGÃƒO",                    
            "(AP) PORTO GRANDE",                
            "(AP) SANTANA",
            "(RO) ARIQUEMES",                   
            "(RO) CANDEIAS DO JAMARI",          
-           "(RO) GUAJARÁ-MIRIM",         
+           "(RO) GUAJARÃ-MIRIM",         
            "(RO) MACHADINHO D'OESTE",          
            "(RO) PORTO VELHO",                 
            "(AC) CRUZEIRO DO SUL",             
-           "(AC) MÂNCIO LIMA",                
+           "(AC) MÃ‚NCIO LIMA",                
            "(AM) BARCELOS",                    
            "(AM) CARAUARI",                    
-           "(AM) CAREIRO DA VÁRZEA",     
+           "(AM) CAREIRO DA VÃRZEA",     
            "(AM) COARI",                       
-           "(AM) GUAJARÁ",               
+           "(AM) GUAJARÃ",               
            "(AM) ITACOATIARA",                 
            "(AM) ITAMARATI",                   
-           "(AM) JAPURÁ",                
-           "(AM) JUTAÍ",                 
-           "(AM) MARAÃ",                      
-           "(AM) NOVO AIRÃO",                 
+           "(AM) JAPURÃ",                
+           "(AM) JUTAÃ",                 
+           "(AM) MARAÃƒ",                      
+           "(AM) NOVO AIRÃƒO",                 
            "(AM) PRESIDENTE FIGUEIREDO",       
            "(AM) SANTA ISABEL DO RIO NEGRO",   
-           "(AM) SANTO ANTÔNIO DO IÇÁ",
-           "(AM) SÃO GABRIEL DA CACHOEIRA",   
-           "(AM) TAPAUÁ",                
-           "(AM) TEFÉ",                       
+           "(AM) SANTO ANTÃ”NIO DO IÃ‡Ã",
+           "(AM) SÃƒO GABRIEL DA CACHOEIRA",   
+           "(AM) TAPAUÃ",                
+           "(AM) TEFÃ‰",                       
            "(RR) ALTO ALEGRE",                 
            "(RR) BOA VISTA",                   
-           "(RR) CANTÁ",                 
-           "(RR) CARACARAÍ",             
+           "(RR) CANTÃ",                 
+           "(RR) CARACARAÃ",             
            "(RR) PACARAIMA",                   
-           "(RR) RORAINÓPOLIS",               
-           "(RR) UIRAMUTÃ",                   
-           "(PA) AFUÁ",                  
-           "(PA) ANAJÁS",                
+           "(RR) RORAINÃ“POLIS",               
+           "(RR) UIRAMUTÃƒ",                   
+           "(PA) AFUÃ",                  
+           "(PA) ANAJÃS",                
            "(PA) BAGRE",                       
-           "(PA) BAIÃO",                      
+           "(PA) BAIÃƒO",                      
            "(PA) BREVES",                      
-           "(PA) CAMETÁ",                
+           "(PA) CAMETÃ",                
            "(PA) CURRALINHO",                  
            "(PA) ITAITUBA",                    
            "(PA) JACAREACANGA",                
@@ -371,14 +376,14 @@ nam_mun<-c("(RO) ARIQUEMES",
            "(PA) MOCAJUBA",                    
            "(PA) NOVO PROGRESSO",              
            "(PA) NOVO REPARTIMENTO",           
-           "(PA) OEIRAS DO PARÁ",        
-           "(PA) OURILÁNDIA DO NORTE",        
+           "(PA) OEIRAS DO PARÃ",        
+           "(PA) OURILÃNDIA DO NORTE",        
            "(PA) PORTEL",                      
-           "(PA) SÃO SEBASTIÃO DA BOA VISTA",
-           "(PA) TUCUMÃ",                     
-           "(PA) TUCURUÍ",               
-           "(AP) MACAPÁ",                
-           "(AP) MAZAGÃO",                    
+           "(PA) SÃƒO SEBASTIÃƒO DA BOA VISTA",
+           "(PA) TUCUMÃƒ",                     
+           "(PA) TUCURUÃ",               
+           "(AP) MACAPÃ",                
+           "(AP) MAZAGÃƒO",                    
            "(AP) PORTO GRANDE",                
            "(AP) SANTANA")                   
 HEAD_V<-data.frame(HEAD_V,STA_Municipality=kkk,nam_mun)
@@ -403,7 +408,7 @@ dev.off()
 #######################################################################
 BASEfal<-data.frame(municipios,ERR_f)
 ################################################
-#     Error promedio de predicción por mes     #
+#     #
 ################################################
 # 2016
 Ef50_100_16<-subset(BASEfal,BASEfal$F2016=="(10,20]")
@@ -455,53 +460,53 @@ kkkF<-paste0(HEAD_F$State," ",HEAD_F$Municipality)
 name_munf<-c("(RO) CANDEIAS DO JAMARI",       
              "(RO) PORTO VELHO",              
              "(AC) CRUZEIRO DO SUL",          
-             "(AC) MÂNCIO LIMA",             
+             "(AC) MÃ‚NCIO LIMA",             
              "(AM) BARCELOS",                 
-             "(AM) GUAJARÁ",            
-             "(AM) HUMAITÁ",            
-             "(AM) JUTAÍ",              
+             "(AM) GUAJARÃ",            
+             "(AM) HUMAITÃ",            
+             "(AM) JUTAÃ",              
              "(AM) SANTA ISABEL DO RIO NEGRO",
-             "(AM) SANTO ANTÔNIO DO IÇÁ",
-             "(AM) SÃO GABRIEL DA CACHOEIRA",
-             "(AM) TAPAUÁ",             
+             "(AM) SANTO ANTÃ”NIO DO IÃ‡Ã",
+             "(AM) SÃƒO GABRIEL DA CACHOEIRA",
+             "(AM) TAPAUÃ",             
              "(RR) AMAJARI",                  
-             "(RR) RORAINÓPOLIS",            
+             "(RR) RORAINÃ“POLIS",            
              "(AP) LARANJAL DO JARI",         
-             "(AP) MAZAGÃO",                 
+             "(AP) MAZAGÃƒO",                 
              "(AP) SANTANA", 
              "(RO) CANDEIAS DO JAMARI",       
              "(RO) PORTO VELHO",              
              "(AC) CRUZEIRO DO SUL",          
-             "(AC) MÂNCIO LIMA",             
+             "(AC) MÃ‚NCIO LIMA",             
              "(AM) BARCELOS",                 
-             "(AM) GUAJARÁ",            
-             "(AM) HUMAITÁ",            
-             "(AM) JUTAÍ",              
+             "(AM) GUAJARÃ",            
+             "(AM) HUMAITÃ",            
+             "(AM) JUTAÃ",              
              "(AM) SANTA ISABEL DO RIO NEGRO",
-             "(AM) SANTO ANTÔNIO DO IÇÁ",
-             "(AM) SÃO GABRIEL DA CACHOEIRA",
-             "(AM) TAPAUÁ",             
+             "(AM) SANTO ANTÃ”NIO DO IÃ‡Ã",
+             "(AM) SÃƒO GABRIEL DA CACHOEIRA",
+             "(AM) TAPAUÃ",             
              "(RR) AMAJARI",                  
-             "(RR) RORAINÓPOLIS",            
+             "(RR) RORAINÃ“POLIS",            
              "(AP) LARANJAL DO JARI",         
-             "(AP) MAZAGÃO",                 
+             "(AP) MAZAGÃƒO",                 
              "(AP) SANTANA",
              "(RO) CANDEIAS DO JAMARI",       
              "(RO) PORTO VELHO",              
              "(AC) CRUZEIRO DO SUL",          
-             "(AC) MÂNCIO LIMA",             
+             "(AC) MÃ‚NCIO LIMA",             
              "(AM) BARCELOS",                 
-             "(AM) GUAJARÁ",            
-             "(AM) HUMAITÁ",            
-             "(AM) JUTAÍ",              
+             "(AM) GUAJARÃ",            
+             "(AM) HUMAITÃ",            
+             "(AM) JUTAÃ",              
              "(AM) SANTA ISABEL DO RIO NEGRO",
-             "(AM) SANTO ANTÔNIO DO IÇÁ",
-             "(AM) SÃO GABRIEL DA CACHOEIRA",
-             "(AM) TAPAUÁ",             
+             "(AM) SANTO ANTÃ”NIO DO IÃ‡Ã",
+             "(AM) SÃƒO GABRIEL DA CACHOEIRA",
+             "(AM) TAPAUÃ",             
              "(RR) AMAJARI",                  
-             "(RR) RORAINÓPOLIS",            
+             "(RR) RORAINÃ“POLIS",            
              "(AP) LARANJAL DO JARI",         
-             "(AP) MAZAGÃO",                 
+             "(AP) MAZAGÃƒO",                 
              "(AP) SANTANA")                 
 HEAD_F<-data.frame(HEAD_F,STA_Municipality=kkkF,name_munf)
 ##############################################################
